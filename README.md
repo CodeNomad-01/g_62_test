@@ -1,41 +1,24 @@
-# Taller Práctico Flutter - Pokemon
+#Explicacion de las mejoras del proyecto
 
-## Descripción
+- Implementacion del patron MODELO-VISTA-CONTROLADOR
+- Implementacion riverpod para gestion de estado
+- Se estrucuuro de manera adecuada las carpetas
+- Clara separacion de responsabilidades
 
-En este repositorio encontrarás una solución que tiene un menú principal con 3 opciones:
+La estructura original contenia todo en lib/main.dart. La nueva estructura separa todo de manera mas clara:
 
-1. **Home**: Contiene una lista de personajes de Pokemon con vista detalle.
-2. **Mock**: Pantalla X.
-3. **Mock**: Pantalla X.
+lib/
+  main.dart
+  models/
+    pokemon.dart
+  controller/
+    pokemon_controller.dart
+  views/
+    home_page.dart
+    pokemon_list_screen.dart
+  providers/
+    pokemon_povider.dart
 
-La funcionalidad principal está en la primera opción, donde se implementa una vista de lista-detalle que consume la API pública de Pokemon.
+Ahora los estados no se gestionan con variables, se utiliza el patron copyWith
 
-## Objetivo del Taller
-
-Tu trabajo como experto en Flutter es aplicar las mejores prácticas de programación vistas en clase para convertir esta solución en una aplicación escalable y mantenible.
-
-## Requisitos
-
-Para lograr este objetivo es indispensable que utilices:
-
-- **Riverpod** como gestor de estado
-- El patrón arquitectónico **MVC** (Modelo-Vista-Controlador)
-- Una clara separación de responsabilidades entre las diferentes clases
-
-## Tiempo y Entrega
-
-- Duración de la actividad: **2 horas**
-- Proceso de entrega:
-  1. Crear un Fork del proyect en tú cuenta de Github.
-  2. Crear una rama con tu solución.
-  3. A partir de esta rama, crear un Pull Request a la rama principal
-  4. Incluir en el README una explicación detallada de los aspectos que mejoraste en la aplicación
-
-## Criterios de Evaluación
-
-Se valorará especialmente:
-
-- La correcta implementación del patrón MVC
-- El uso adecuado de Riverpod para la gestión del estado
-- La separación de responsabilidades entre clases
-- La claridad y mantenibilidad del código resultante
+Antes todo estaba mezclado, ahora los controladores manejan la logica de estado, las vistas solo muestran la UI, los modelos definen las estructuras de datos  y los proveedores conectan controladores con vistas
